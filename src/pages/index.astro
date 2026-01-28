@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Project data matching Pencil design
+const projects = [
+  {
+    company: "STASHAWAY",
+    metric: "3.2M+",
+    description:
+      "Users acquired through performance marketing campaigns across 5 markets",
+  },
+  {
+    company: "CARSOME",
+    metric: "47%",
+    description:
+      "Reduction in CAC while scaling monthly GMV by 2.8x year-over-year",
+  },
+  {
+    company: "SHOPEE",
+    metric: "$12M",
+    description:
+      "Incremental revenue attributed to CRM automation and lifecycle marketing",
+  },
+];
+---
+
+<Layout title="Vian | Growth Marketer">
+  <main
+    class="min-h-screen w-full max-w-[1200px] mx-auto px-6 py-12 md:px-[120px] md:py-[80px] flex flex-col gap-12 md:gap-16"
+  >
+    <!-- Hero Section -->
+    <section class="flex flex-col gap-6 items-start">
+      <!-- Label -->
+      <span
+        class="text-xs font-medium tracking-[2px] text-[#71717A] uppercase"
+      >
+        Growth Marketer &bull; SE Asia
+      </span>
+
+      <!-- Headline (Serif) -->
+      <h1
+        class="font-serif text-3xl md:text-5xl font-normal text-[#18181B] leading-[1.2] max-w-[800px]"
+      >
+        I build growth engines for SE Asia's top tech brands.
+      </h1>
+
+      <!-- Subline -->
+      <p
+        class="text-base md:text-lg font-normal text-[#71717A] leading-[1.6] max-w-[600px]"
+      >
+        From zero to millions in user acquisition. Data-driven strategies that
+        actually scale.
+      </p>
+
+      <!-- CTA Row -->
+      <div class="flex flex-wrap items-center gap-4">
+        <!-- Primary CTA Button -->
+        <a
+          href="/resume.pdf"
+          download
+          class="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-semibold text-sm px-7 py-3.5 rounded transition-colors"
+        >
+          <!-- Download Icon (Lucide) -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Resume (PDF)
+        </a>
+
+        <!-- Secondary Text -->
+        <span class="text-sm text-[#A1A1AA]">
+          or scroll to see my work &darr;
+        </span>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="flex flex-col gap-8">
+      <!-- Section Label -->
+      <span
+        class="text-xs font-semibold tracking-[2px] text-[#71717A] uppercase"
+      >
+        The Big 3 Results
+      </span>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          projects.map((project) => (
+            <article class="flex flex-col gap-4 p-8 bg-white rounded-lg border border-[#E4E4E7]">
+              {/* Company Name */}
+              <span class="text-[11px] font-semibold tracking-[1.5px] text-[#A1A1AA] uppercase">
+                {project.company}
+              </span>
+
+              {/* Metric */}
+              <span class="text-4xl md:text-[42px] font-bold text-[#18181B] leading-none">
+                {project.metric}
+              </span>
+
+              {/* Description */}
+              <p class="text-sm font-normal text-[#71717A] leading-[1.5]">
+                {project.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
