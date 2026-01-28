@@ -4,17 +4,30 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', "Georgia", "serif"],
+        display: ['"Playfair Display"', "Georgia", "serif"],
         sans: ['"Inter"', "system-ui", "sans-serif"],
+        mono: ['"IBM Plex Mono"', "monospace"],
       },
       colors: {
-        primary: "#18181B",
-        secondary: "#71717A",
-        muted: "#A1A1AA",
-        accent: "#2563EB",
-        background: "#FAFAFA",
-        card: "#FFFFFF",
-        border: "#E4E4E7",
+        // Editorial Monochrome Palette
+        page: "#FDFCF9",
+        surface: "#F5F2ED",
+        avatar: "#E8E5DF",
+        border: "#E5E2DC",
+        "black-primary": "#1A1A1A",
+        "gray-600": "#666666",
+        "gray-500": "#999999",
+        "green-success": "#22C55E",
+      },
+      letterSpacing: {
+        display: "-2px",
+        metric: "-1px",
+        nav: "0.5px",
+        section: "2px",
+        logo: "4px",
+      },
+      borderRadius: {
+        none: "0px", // Editorial style: zero radius everywhere
       },
     },
   },
