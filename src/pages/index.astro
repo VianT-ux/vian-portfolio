@@ -22,6 +22,46 @@ const projects = [
       "Incremental revenue attributed to CRM automation and lifecycle marketing",
   },
 ];
+
+// Capability Tabs data
+const tabs = [
+  {
+    id: "pmm",
+    label: "Product Marketing",
+    accent: "#3D7B6E",
+    metrics: [
+      { highlight: "164%", description: "Increase in USD Portfolio net deposits post-launch" },
+      { highlight: "35% MoM", description: "Growth in acquisition via Homepage Revamp" },
+      { highlight: ">5%", description: "Revenue growth in Juice Category via PMF analysis" },
+    ],
+    pitch: "I don't just promote features; I engineer adoption. By bridging the gap between 'Technical Feasibility' and 'Market Desirability,' I build GTM strategies that turn complex fintech products into clear customer value.",
+    cta: "View GTM Case Studies",
+  },
+  {
+    id: "growth",
+    label: "Growth & Lifecycle",
+    accent: "#5A6E8A",
+    metrics: [
+      { highlight: "2x", description: "Retention Rate doubled (15% to 31%) via education focus" },
+      { highlight: "17%", description: "Improvement in Marketing Efficiency via data-pulse reviews" },
+      { highlight: "200%", description: "MoM growth for Shopee Store via dynamic bundling" },
+    ],
+    pitch: "Acquisition is vanity; Retention is sanity. I use behavioral data and A/B testing to plug leaky funnels. From SQL dashboards to CRM journeys, I build the infrastructure that makes growth predictable.",
+    cta: "View Retention Framework",
+  },
+  {
+    id: "commercial",
+    label: "Commercial Strategy",
+    accent: "#8A6A7E",
+    metrics: [
+      { highlight: "37%", description: "Market reach expansion via Touch 'n Go integration" },
+      { highlight: "300%", description: "MoM sales increase via bank partnership" },
+      { highlight: "6 Months", description: "Time to unit profitability for US Treasury product" },
+    ],
+    pitch: "I look beyond paid ads to find 'unfair' growth channels. Whether it's integrating into a Super App ecosystem or managing a P&L for profitability, I treat marketing as a commercial lever, not a cost center.",
+    cta: "View Commercial Wins",
+  },
+];
 ---
 
 <Layout title="Vian | Growth Marketer">
@@ -87,178 +127,201 @@ const projects = [
     </div>
   </header>
 
-  <main class="w-full max-w-[1440px] mx-auto px-6 py-12 md:px-16 md:py-12 flex flex-col gap-12">
-    <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-12">
-      <!-- Left Content -->
-      <div class="flex flex-col gap-6 md:gap-8 flex-1">
-        <!-- Breadcrumb -->
-        <span class="text-xs text-[#999999]">
-          Portfolio / Overview
-        </span>
+  <main class="w-full max-w-[1440px] mx-auto flex flex-col">
+    <!-- Topfold -->
+    <section class="flex flex-col items-center gap-8 px-6 py-16 md:px-20 md:py-16">
+      <!-- Photo -->
+      <div
+        class="w-36 h-36 md:w-40 md:h-40 bg-[#F5F2ED] border border-[#E5E2DC] flex flex-col items-center justify-center gap-2 overflow-hidden flex-shrink-0"
+      >
+        <!-- Replace with: <img src="/images/vian-photo.jpg" alt="Vian" class="w-full h-full object-cover" /> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="text-[10px] text-[#999999]">Your photo</span>
+      </div>
 
-        <!-- Headline (Playfair Display Italic) -->
-        <h1
-          class="font-display italic text-4xl md:text-6xl lg:text-[72px] font-normal text-[#1A1A1A] tracking-display leading-[1.1]"
-        >
-          I build growth engines for SE Asia's top tech brands.
-        </h1>
+      <!-- Headline -->
+      <h1 class="font-display text-4xl md:text-5xl font-normal text-[#1A1A1A] tracking-[-1px] text-center">
+        Hi, I'm Vian
+      </h1>
 
-        <!-- Subtitle -->
-        <p
-          class="text-base text-[#666666] leading-[1.6] max-w-[480px]"
-        >
-          From zero to millions in user acquisition. Data-driven strategies that
-          actually scale. Specializing in performance marketing, CRM automation,
-          and lifecycle optimization.
-        </p>
+      <!-- Subtitle -->
+      <p class="text-sm font-medium text-[#999999] tracking-[1px] text-center">
+        Growth Strategist · SE Asia
+      </p>
 
-        <!-- Meta Row -->
-        <div class="flex items-center gap-4 text-xs text-[#999999]">
-          <span>Updated: Jan 2026</span>
-          <span class="w-1 h-1 rounded-full bg-[#999999]"></span>
-          <span>Singapore</span>
+      <!-- Logo Bar (Pill) -->
+      <div class="flex flex-col items-center gap-3 border border-[#E5E2DC] rounded-full px-8 md:px-10 py-5">
+        <span class="text-[13px] text-[#666666]">Shipped results for</span>
+        <div class="flex items-center gap-5 md:gap-6">
+          <span class="text-base font-bold text-[#1A1A1A]">Shopee</span>
+          <span class="text-base text-[#E5E2DC]">&middot;</span>
+          <span class="text-base font-bold text-[#1A1A1A]">StashAway</span>
+          <span class="text-base text-[#E5E2DC]">&middot;</span>
+          <span class="text-base font-bold text-[#1A1A1A]">Carsome</span>
         </div>
       </div>
 
-      <!-- Photo Placeholder -->
-      <div
-        class="relative bg-[#F5F2ED] border border-[#E5E2DC] w-full md:w-[320px] h-[320px] md:h-[380px] flex-shrink-0 flex flex-col items-center justify-center gap-4 overflow-hidden"
-      >
-        <!-- Replace this div with your actual image: -->
-        <!-- <img src="/images/vian-photo.jpg" alt="Vian" class="w-full h-full object-cover" /> -->
+      <!-- About -->
+      <h2 class="text-[13px] font-medium text-[#1A1A1A] text-center">About</h2>
+      <p class="text-[15px] text-[#666666] leading-[1.7] text-center max-w-xl">
+        Your bio goes here. Write 2–3 sentences about what you do, who you've
+        done it for, and why you're different. Keep it conversational and
+        confident — let the work below speak for the rest.
+      </p>
 
-        <!-- Placeholder Content (remove when adding real photo) -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#999999"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+      <!-- Scroll CTA -->
+      <a href="#results" class="text-xs font-medium text-[#999999] tracking-[0.5px] hover:text-[#666666] transition-colors">
+        ↓&ensp;See case studies
+      </a>
+    </section>
+
+    <!-- Key Results Section -->
+    <section id="results" class="flex flex-col gap-8 px-6 py-12 md:px-20">
+      <!-- Section Divider -->
+      <div class="flex items-center justify-between border-t border-[#E5E2DC] pt-4">
+        <span class="text-[10px] font-bold text-[#1A1A1A] tracking-[2px] uppercase">
+          Key Results
+        </span>
+        <span class="text-[11px] text-[#999999]">2020 – Present</span>
+      </div>
+
+      <!-- Metric Cards (Unified Block with 1px gaps) -->
+      <div class="bg-[#E5E2DC] flex flex-col md:flex-row gap-px">
+        {
+          projects.map((project) => (
+            <article class="bg-[#FDFCF9] flex flex-col gap-3 p-6 md:p-8 flex-1">
+              <span class="text-[11px] font-medium text-[#999999] tracking-[0.5px] uppercase">
+                {project.company}
+              </span>
+              <span class="font-mono text-3xl md:text-[28px] font-semibold text-[#1A1A1A] tracking-[-1px]">
+                {project.metric}
+              </span>
+              <p class="text-[13px] text-[#666666] leading-[1.5]">
+                {project.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center justify-between border-t border-[#E5E2DC] pt-4">
+        <span class="text-[10px] font-bold text-[#1A1A1A] tracking-[2px] uppercase">
+          Quick Actions
+        </span>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="/resume.pdf"
+          download
+          class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
         >
-          <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
-          <circle cx="9" cy="9" r="2"></circle>
-          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
-        </svg>
-        <span class="text-[11px] text-[#999999] tracking-nav">Your photo here</span>
-        <span class="text-[10px] text-[#999999]">320 × 380px recommended</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Resume
+        </a>
+        <a
+          href="https://linkedin.com/in/vian"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect width="4" height="12" x="2" y="9"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+          LinkedIn
+        </a>
+        <a
+          href="mailto:vian@example.com"
+          class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          Email
+        </a>
       </div>
     </section>
 
-    <!-- Section Divider: Key Metrics -->
-    <div
-      id="results"
-      class="flex items-center justify-between border-t border-[#E5E2DC] pt-4"
-    >
-      <span class="text-[10px] font-bold text-[#1A1A1A] tracking-section uppercase">
-        Key Results
-      </span>
-      <span class="text-[11px] text-[#999999]">2020 – Present</span>
-    </div>
+    <!-- Capability Tabs Section -->
+    <section id="capabilities" class="flex flex-col gap-8 px-6 py-12 md:px-20">
+      <!-- Section Divider -->
+      <div class="flex items-center justify-between border-t border-[#E5E2DC] pt-4">
+        <span class="text-[10px] font-bold text-[#1A1A1A] tracking-[2px] uppercase">
+          Capabilities
+        </span>
+      </div>
 
-    <!-- Metric Cards (Unified Block with 1px gaps) -->
-    <div class="bg-[#E5E2DC] flex flex-col md:flex-row gap-px">
+      <!-- Tab Navigation -->
+      <div class="flex items-center border-b border-[#E5E2DC]">
+        {
+          tabs.map((tab, i) => (
+            <button
+              data-tab={tab.id}
+              class={`tab-btn px-4 py-3 text-[12px] tracking-[0.5px] border-b-2 transition-all cursor-pointer ${
+                i === 0
+                  ? "font-semibold text-[#1A1A1A] border-[#1A1A1A]"
+                  : "font-medium text-[#999999] border-transparent hover:text-[#666666]"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Tab Content Panels -->
       {
-        projects.map((project) => (
-          <article class="bg-[#FDFCF9] flex flex-col gap-3 p-6 md:p-8 flex-1">
-            {/* Company Label */}
-            <span class="text-[11px] font-medium text-[#999999] tracking-nav uppercase">
-              {project.company}
-            </span>
+        tabs.map((tab, i) => (
+          <div
+            data-panel={tab.id}
+            class={`tab-panel grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 ${i === 0 ? "" : "hidden"}`}
+          >
+            {/* Metrics Column */}
+            <div class="flex flex-col gap-6">
+              {tab.metrics.map((metric) => (
+                <div class="flex flex-col gap-1">
+                  <span
+                    class="font-mono text-3xl font-semibold tracking-[-1px]"
+                    style={`color: ${tab.accent}`}
+                  >
+                    {metric.highlight}
+                  </span>
+                  <p class="text-[13px] text-[#666666] leading-[1.5]">
+                    {metric.description}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-            {/* Metric (Monospace) */}
-            <span class="font-mono text-3xl md:text-[28px] font-semibold text-[#1A1A1A] tracking-metric">
-              {project.metric}
-            </span>
-
-            {/* Description */}
-            <p class="text-[13px] text-[#666666] leading-[1.5]">
-              {project.description}
-            </p>
-          </article>
+            {/* Pitch Column */}
+            <div class="flex flex-col gap-6 justify-center">
+              <p class="text-[15px] text-[#666666] leading-[1.7]">
+                {tab.pitch}
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.5px] hover:opacity-70 transition-opacity w-fit"
+                style={`color: ${tab.accent}`}
+              >
+                {tab.cta}
+                <span>→</span>
+              </a>
+            </div>
+          </div>
         ))
       }
-    </div>
-
-    <!-- Section Divider: Quick Actions -->
-    <div class="flex items-center justify-between border-t border-[#E5E2DC] pt-4">
-      <span class="text-[10px] font-bold text-[#1A1A1A] tracking-section uppercase">
-        Quick Actions
-      </span>
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="flex flex-wrap gap-3">
-      <a
-        href="/resume.pdf"
-        download
-        class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#666666"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        Download Resume
-      </a>
-      <a
-        href="https://linkedin.com/in/vian"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#666666"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-          <rect width="4" height="12" x="2" y="9"></rect>
-          <circle cx="4" cy="4" r="2"></circle>
-        </svg>
-        LinkedIn
-      </a>
-      <a
-        href="mailto:vian@example.com"
-        class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#666666"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-        </svg>
-        Email
-      </a>
-    </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -272,4 +335,31 @@ const projects = [
       </span>
     </div>
   </footer>
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+
+        // Update button states
+        buttons.forEach((b) => {
+          b.classList.remove('font-semibold', 'text-[#1A1A1A]', 'border-[#1A1A1A]');
+          b.classList.add('font-medium', 'text-[#999999]', 'border-transparent');
+        });
+        btn.classList.remove('font-medium', 'text-[#999999]', 'border-transparent');
+        btn.classList.add('font-semibold', 'text-[#1A1A1A]', 'border-[#1A1A1A]');
+
+        // Show/hide panels
+        panels.forEach((p) => {
+          if (p.getAttribute('data-panel') === tabId) {
+            p.classList.remove('hidden');
+          } else {
+            p.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
 </Layout>
