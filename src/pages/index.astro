@@ -1,28 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-// Project data matching Pencil design
-const projects = [
-  {
-    company: "STASHAWAY",
-    metric: "3.2M+",
-    description:
-      "Users acquired through performance marketing campaigns across 5 markets",
-  },
-  {
-    company: "CARSOME",
-    metric: "47%",
-    description:
-      "Reduction in CAC while scaling monthly GMV by 2.8x year-over-year",
-  },
-  {
-    company: "SHOPEE",
-    metric: "$12M",
-    description:
-      "Incremental revenue attributed to CRM automation and lifecycle marketing",
-  },
-];
-
 // Capability Tabs data
 const tabs = [
   {
@@ -84,8 +62,8 @@ const tabs = [
           <span class="w-1.5 h-1.5 rounded-full bg-[#1A1A1A]"></span>
           Overview
         </a>
-        <a href="#results" class="text-xs text-[#999999] tracking-nav hover:text-[#1A1A1A] transition-colors">
-          Results
+        <a href="#capabilities" class="text-xs text-[#999999] tracking-nav hover:text-[#1A1A1A] transition-colors">
+          Capabilities
         </a>
         <a href="#" class="text-xs text-[#999999] tracking-nav hover:text-[#1A1A1A] transition-colors">
           About
@@ -173,84 +151,9 @@ const tabs = [
       </p>
 
       <!-- Scroll CTA -->
-      <a href="#results" class="text-xs font-medium text-[#999999] tracking-[0.5px] hover:text-[#666666] transition-colors">
+      <a href="#capabilities" class="text-xs font-medium text-[#999999] tracking-[0.5px] hover:text-[#666666] transition-colors">
         ↓&ensp;See case studies
       </a>
-    </section>
-
-    <!-- Key Results Section -->
-    <section id="results" class="flex flex-col gap-8 px-6 py-12 md:px-20">
-      <!-- Section Divider -->
-      <div class="flex items-center justify-between border-t border-[#E5E2DC] pt-4">
-        <span class="text-[10px] font-bold text-[#1A1A1A] tracking-[2px] uppercase">
-          Key Results
-        </span>
-        <span class="text-[11px] text-[#999999]">2020 – Present</span>
-      </div>
-
-      <!-- Metric Cards (Unified Block with 1px gaps) -->
-      <div class="bg-[#E5E2DC] flex flex-col md:flex-row gap-px">
-        {
-          projects.map((project) => (
-            <article class="bg-[#FDFCF9] flex flex-col gap-3 p-6 md:p-8 flex-1">
-              <span class="text-[11px] font-medium text-[#999999] tracking-[0.5px] uppercase">
-                {project.company}
-              </span>
-              <span class="font-mono text-3xl md:text-[28px] font-semibold text-[#1A1A1A] tracking-[-1px]">
-                {project.metric}
-              </span>
-              <p class="text-[13px] text-[#666666] leading-[1.5]">
-                {project.description}
-              </p>
-            </article>
-          ))
-        }
-      </div>
-
-      <!-- Quick Actions -->
-      <div class="flex items-center justify-between border-t border-[#E5E2DC] pt-4">
-        <span class="text-[10px] font-bold text-[#1A1A1A] tracking-[2px] uppercase">
-          Quick Actions
-        </span>
-      </div>
-
-      <div class="flex flex-wrap gap-3">
-        <a
-          href="/resume.pdf"
-          download
-          class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Download Resume
-        </a>
-        <a
-          href="https://linkedin.com/in/vian"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect width="4" height="12" x="2" y="9"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-          LinkedIn
-        </a>
-        <a
-          href="mailto:vian@example.com"
-          class="flex items-center gap-2 border border-[#E5E2DC] px-4 py-2 text-[11px] font-medium text-[#1A1A1A] hover:bg-[#F5F2ED] transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-          </svg>
-          Email
-        </a>
-      </div>
     </section>
 
     <!-- Capability Tabs Section -->
