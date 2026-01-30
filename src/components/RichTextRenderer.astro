@@ -1,0 +1,137 @@
+---
+/**
+ * RichTextRenderer - Renders Tina CMS rich-text AST to HTML without React.
+ * Walks the Tina rich-text JSON tree and maps nodes to Astro components at build time.
+ * Ships zero client JS.
+ */
+import Callout from "./rich-text/Callout.astro";
+import CTABanner from "./rich-text/CTABanner.astro";
+import CaptionedImage from "./rich-text/CaptionedImage.astro";
+
+interface Props {
+  content: any;
+}
+
+const { content } = Astro.props;
+
+// Map Tina template names to components
+const componentMap: Record<string, any> = {
+  Callout,
+  CTABanner,
+  CaptionedImage,
+};
+
+function renderChildren(children: any[]): string {
+  if (!children) return "";
+  return children.map((child) => renderNode(child)).join("");
+}
+
+function renderNode(node: any): string {
+  if (!node) return "";
+
+  // Text node
+  if (node.type === "text") {
+    let text = escapeHtml(node.text || "");
+    if (node.bold) text = `<strong>${text}</strong>`;
+    if (node.italic) text = `<em>${text}</em>`;
+    if (node.code) text = `<code>${text}</code>`;
+    if (node.underline) text = `<u>${text}</u>`;
+    if (node.strikethrough) text = `<s>${text}</s>`;
+    return text;
+  }
+
+  // Block-level nodes
+  const children = renderChildren(node.children);
+
+  switch (node.type) {
+    case "h1":
+      return `<h1 class="font-display text-3xl md:text-4xl font-normal text-[#1A1A1A] tracking-[-1px] mt-10 mb-4">${children}</h1>`;
+    case "h2":
+      return `<h2 class="font-display text-2xl md:text-3xl font-normal text-[#1A1A1A] tracking-[-0.5px] mt-8 mb-3">${children}</h2>`;
+    case "h3":
+      return `<h3 class="text-xl font-semibold text-[#1A1A1A] mt-6 mb-2">${children}</h3>`;
+    case "h4":
+      return `<h4 class="text-lg font-semibold text-[#1A1A1A] mt-4 mb-2">${children}</h4>`;
+    case "p":
+      return `<p class="text-[15px] text-[#666666] leading-[1.7] mb-4">${children}</p>`;
+    case "blockquote":
+      return `<blockquote class="border-l-2 border-[#E5E2DC] pl-4 my-4 italic text-[#999999]">${children}</blockquote>`;
+    case "code_block":
+      return `<pre class="bg-[#F5F2ED] border border-[#E5E2DC] p-4 my-4 overflow-x-auto font-mono text-sm text-[#1A1A1A]"><code>${children}</code></pre>`;
+    case "ul":
+      return `<ul class="list-disc pl-6 my-4 space-y-1 text-[15px] text-[#666666] leading-[1.7]">${children}</ul>`;
+    case "ol":
+      return `<ol class="list-decimal pl-6 my-4 space-y-1 text-[15px] text-[#666666] leading-[1.7]">${children}</ol>`;
+    case "li":
+      return `<li>${children}</li>`;
+    case "a":
+      return `<a href="${escapeHtml(node.url || "#")}" class="underline hover:text-[#1A1A1A] transition-colors">${children}</a>`;
+    case "img":
+      return `<img src="${escapeHtml(node.url || "")}" alt="${escapeHtml(node.alt || "")}" class="my-6 max-w-full" />`;
+    case "hr":
+      return `<hr class="border-[#E5E2DC] my-8" />`;
+    case "html_inline":
+    case "html":
+      return node.value || "";
+    default:
+      // Custom embedded components (MDX templates)
+      if (node.type === "mdxJsxFlowElement" || node.name) {
+        // This is handled separately via the component rendering below
+        return "";
+      }
+      return children;
+  }
+}
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// Separate embedded components from regular content
+function getEmbeddedComponents(children: any[]): any[] {
+  if (!children) return [];
+  return children.filter(
+    (node) => node.type === "mdxJsxFlowElement" || (node._template && componentMap[node._template])
+  );
+}
+
+function getRegularContent(children: any[]): any[] {
+  if (!children) return [];
+  return children.filter(
+    (node) => node.type !== "mdxJsxFlowElement" && !node._template
+  );
+}
+---
+
+{content && content.children ? (
+  <div class="rich-text-content">
+    {content.children.map((node) => {
+      // Handle custom Tina templates
+      if (node._template && componentMap[node._template]) {
+        const Component = componentMap[node._template];
+        return <Component {...node} />;
+      }
+      // Handle MDX JSX elements
+      if (node.type === "mdxJsxFlowElement" && node.name && componentMap[node.name]) {
+        const Component = componentMap[node.name];
+        const props = {};
+        if (node.attributes) {
+          node.attributes.forEach((attr) => {
+            props[attr.name] = attr.value;
+          });
+        }
+        return <Component {...props} />;
+      }
+      // Regular HTML content
+      return <Fragment set:html={renderNode(node)} />;
+    })}
+  </div>
+) : (
+  <div class="rich-text-content">
+    <p class="text-[#999999] italic">No content yet.</p>
+  </div>
+)}

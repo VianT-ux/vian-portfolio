@@ -1,0 +1,24 @@
+{
+  "headline": "Hi, I'm Vian Twoon",
+  "subtitle": "Growth Strategist · SE Asia",
+  "photo": "",
+  "shippedResultsLabel": "Shipped results for",
+  "companies": [
+    {
+      "name": "Shopee"
+    },
+    {
+      "name": "StashAway"
+    },
+    {
+      "name": "Carsome"
+    }
+  ],
+  "aboutHeading": "About",
+  "aboutText": "Your bio goes here. Write 2–3 sentences about what you do, who you've done it for, and why you're different. Keep it conversational and confident — let the work below speak for the rest.",
+  "seo": {
+    "metaTitle": "Vian | Growth Marketer",
+    "metaDescription": "Growth Marketer | SE Asia",
+    "ogImage": ""
+  }
+}

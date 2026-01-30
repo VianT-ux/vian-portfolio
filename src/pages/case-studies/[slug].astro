@@ -1,0 +1,74 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import RichTextRenderer from "../../components/RichTextRenderer.astro";
+import client from "../../../tina/__generated__/client";
+
+export async function getStaticPaths() {
+  const response = await client.queries.caseStudyConnection();
+  const caseStudies = response.data.caseStudyConnection.edges || [];
+
+  return caseStudies.map((edge: any) => {
+    const slug = edge.node._sys.filename;
+    return {
+      params: { slug },
+      props: { relativePath: `${slug}.mdx` },
+    };
+  });
+}
+
+const { relativePath } = Astro.props;
+const response = await client.queries.caseStudy({ relativePath });
+const caseStudy = response.data.caseStudy;
+
+const seo = caseStudy.seo;
+const pageTitle = seo?.metaTitle || `${caseStudy.title} | Vian`;
+const pageDescription = seo?.metaDescription || "";
+const ogImage = seo?.ogImage || caseStudy.coverImage || "";
+---
+
+<Layout title={pageTitle} description={pageDescription} ogImage={ogImage}>
+  <main class="w-full max-w-[720px] mx-auto px-6 py-16 md:px-8">
+    <!-- Back link -->
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-[12px] font-medium text-[#999999] tracking-[0.5px] hover:text-[#666666] transition-colors mb-12"
+    >
+      <span>←</span> Back to portfolio
+    </a>
+
+    <!-- Header -->
+    <header class="mb-12">
+      {caseStudy.company && (
+        <p class="text-[10px] font-bold text-[#999999] tracking-[2px] uppercase mb-3">
+          {caseStudy.company}
+        </p>
+      )}
+      <h1 class="font-display text-3xl md:text-4xl font-normal text-[#1A1A1A] tracking-[-1px] mb-4">
+        {caseStudy.title}
+      </h1>
+      {caseStudy.tags && caseStudy.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-4">
+          {caseStudy.tags.map((tag: string) => (
+            <span class="text-[11px] font-medium text-[#666666] bg-[#F5F2ED] px-3 py-1">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    {/* Cover image */}
+    {caseStudy.coverImage && (
+      <img
+        src={caseStudy.coverImage}
+        alt={caseStudy.title}
+        class="w-full border border-[#E5E2DC] mb-12"
+      />
+    )}
+
+    {/* Body */}
+    <article>
+      <RichTextRenderer content={caseStudy.body} />
+    </article>
+  </main>
+</Layout>

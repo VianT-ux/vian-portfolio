@@ -1,0 +1,28 @@
+---
+interface Props {
+  image?: string;
+  caption?: string;
+  attribution?: string;
+}
+
+const { image, caption, attribution } = Astro.props;
+---
+
+{image && (
+  <figure class="my-8">
+    <img
+      src={image}
+      alt={caption || ""}
+      class="w-full border border-[#E5E2DC]"
+      loading="lazy"
+    />
+    {(caption || attribution) && (
+      <figcaption class="mt-2 text-[12px] text-[#999999]">
+        {caption}
+        {attribution && (
+          <span class="ml-1 italic">— {attribution}</span>
+        )}
+      </figcaption>
+    )}
+  </figure>
+)}

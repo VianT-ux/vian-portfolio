@@ -2,9 +2,11 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = "Growth Marketer | SE Asia" } = Astro.props;
+const { title, description = "Growth Marketer | SE Asia", ogImage } = Astro.props;
+const canonicalUrl = Astro.url.href;
 ---
 
 <!doctype html>
@@ -16,6 +18,19 @@ const { title, description = "Growth Marketer | SE Asia" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <!-- Google Fonts: Playfair Display (Serif) + Inter (Sans) + IBM Plex Mono (Metrics) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

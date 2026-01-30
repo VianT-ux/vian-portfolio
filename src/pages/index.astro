@@ -1,81 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import client from "../../tina/__generated__/client";
 
-// Capability Tabs data
-const tabs = [
-  {
-    id: "pmm",
-    label: "Product Marketing",
-    accent: "#3D7B6E",
-    metrics: [
-      {
-        highlight: "164%",
-        description: "Increase in USD Portfolio net deposits post-launch",
-        detail: "Launched the USD Portfolio product with a full GTM strategy, aligning product positioning with customer education campaigns that drove a 164% surge in net deposits within the first quarter.",
-      },
-      {
-        highlight: "35% MoM",
-        description: "Growth in acquisition via Homepage Revamp",
-        detail: "Redesigned the homepage acquisition funnel with data-driven messaging and A/B tested layouts, resulting in 35% month-over-month growth in new user sign-ups.",
-      },
-      {
-        highlight: ">5%",
-        description: "Revenue growth in Juice Category via PMF analysis",
-        detail: "Conducted a deep Product-Market Fit analysis for the Juice category, identifying underserved segments and repositioning the value proposition to unlock over 5% incremental revenue growth.",
-      },
-    ],
-    cta: "View GTM Case Studies",
-  },
-  {
-    id: "growth",
-    label: "Growth & Lifecycle",
-    accent: "#5A6E8A",
-    metrics: [
-      {
-        highlight: "2x",
-        description: "Retention Rate doubled (15% to 31%) via education focus",
-        detail: "Built a behavioral education framework that doubled user retention from 15% to 31%, turning first-time depositors into long-term investors through targeted lifecycle campaigns.",
-      },
-      {
-        highlight: "17%",
-        description: "Improvement in Marketing Efficiency via data-pulse reviews",
-        detail: "Implemented weekly data-pulse reviews across all paid and organic channels, systematically reallocating budget to high-performing segments and improving overall marketing efficiency by 17%.",
-      },
-      {
-        highlight: "200%",
-        description: "MoM growth for Shopee Store via dynamic bundling",
-        detail: "Developed a dynamic bundling strategy for the Shopee store, using real-time sales data to optimize product combinations and drive 200% month-over-month revenue growth.",
-      },
-    ],
-    cta: "View Retention Framework",
-  },
-  {
-    id: "commercial",
-    label: "Commercial Strategy",
-    accent: "#8A6A7E",
-    metrics: [
-      {
-        highlight: "37%",
-        description: "Market reach expansion via Touch 'n Go integration",
-        detail: "Negotiated and executed a strategic integration with Touch 'n Go's Super App ecosystem, expanding market reach by 37% through embedded financial services.",
-      },
-      {
-        highlight: "300%",
-        description: "MoM sales increase via bank partnership",
-        detail: "Structured a co-marketing partnership with a major bank, creating exclusive product bundles that drove a 300% month-over-month increase in sales volume.",
-      },
-      {
-        highlight: "6 Months",
-        description: "Time to unit profitability for US Treasury product",
-        detail: "Managed the full P&L for the US Treasury product launch, optimizing acquisition costs and pricing strategy to achieve unit profitability within just 6 months.",
-      },
-    ],
-    cta: "View Commercial Wins",
-  },
-];
+// Fetch homepage content
+const homepageResponse = await client.queries.homepage({ relativePath: "index.json" });
+const homepage = homepageResponse.data.homepage;
+
+// Fetch capabilities content
+const capsResponse = await client.queries.capabilities({ relativePath: "index.json" });
+const tabs = capsResponse.data.capabilities.tabs;
+
+// Fetch site settings
+const settingsResponse = await client.queries.siteSettings({ relativePath: "index.json" });
+const settings = settingsResponse.data.siteSettings;
+
+// SEO
+const seo = homepage.seo;
+const pageTitle = seo?.metaTitle || "Vian | Growth Marketer";
+const pageDescription = seo?.metaDescription || "Growth Marketer | SE Asia";
+const ogImage = seo?.ogImage || "";
 ---
 
-<Layout title="Vian | Growth Marketer">
+<Layout title={pageTitle} description={pageDescription} ogImage={ogImage}>
   <!-- Masthead Navigation -->
   <header
     class="w-full border-b border-[#E5E2DC] px-6 py-5 md:px-16 flex items-center justify-between"
@@ -83,7 +29,7 @@ const tabs = [
     <div class="flex items-center gap-8">
       <!-- Logo -->
       <span class="font-display font-bold text-2xl text-[#1A1A1A] tracking-logo">
-        VIAN
+        {settings.logoText || "VIAN"}
       </span>
 
       <!-- Navigation -->
@@ -107,7 +53,7 @@ const tabs = [
     <div class="flex items-center gap-4">
       <!-- Resume Button -->
       <a
-        href="/resume.pdf"
+        href={settings.resumeFile || "/resume.pdf"}
         download
         class="hidden md:flex items-center gap-2 bg-[#1A1A1A] text-white text-[11px] font-semibold tracking-section px-4 py-2"
       >
@@ -145,42 +91,48 @@ const tabs = [
       <div
         class="w-36 h-36 md:w-40 md:h-40 bg-[#F5F2ED] border border-[#E5E2DC] flex flex-col items-center justify-center gap-2 overflow-hidden flex-shrink-0"
       >
-        <!-- Replace with: <img src="/images/vian-photo.jpg" alt="Vian" class="w-full h-full object-cover" /> -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        <span class="text-[10px] text-[#999999]">Your photo</span>
+        {homepage.photo ? (
+          <img src={homepage.photo} alt={homepage.headline} class="w-full h-full object-cover" />
+        ) : (
+          <>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span class="text-[10px] text-[#999999]">Your photo</span>
+          </>
+        )}
       </div>
 
       <!-- Headline -->
       <h1 class="font-display text-4xl md:text-5xl font-normal text-[#1A1A1A] tracking-[-1px] text-center">
-        Hi, I'm Vian
+        {homepage.headline}
       </h1>
 
       <!-- Subtitle -->
       <p class="text-sm font-medium text-[#999999] tracking-[1px] text-center">
-        Growth Strategist · SE Asia
+        {homepage.subtitle}
       </p>
 
       <!-- Logo Bar (Pill) -->
-      <div class="flex flex-col items-center gap-3 border border-[#E5E2DC] rounded-full px-8 md:px-10 py-5">
-        <span class="text-[13px] text-[#666666]">Shipped results for</span>
-        <div class="flex items-center gap-5 md:gap-6">
-          <span class="text-base font-bold text-[#1A1A1A]">Shopee</span>
-          <span class="text-base text-[#E5E2DC]">&middot;</span>
-          <span class="text-base font-bold text-[#1A1A1A]">StashAway</span>
-          <span class="text-base text-[#E5E2DC]">&middot;</span>
-          <span class="text-base font-bold text-[#1A1A1A]">Carsome</span>
+      {homepage.companies && homepage.companies.length > 0 && (
+        <div class="flex flex-col items-center gap-3 border border-[#E5E2DC] rounded-full px-8 md:px-10 py-5">
+          <span class="text-[13px] text-[#666666]">{homepage.shippedResultsLabel}</span>
+          <div class="flex items-center gap-5 md:gap-6">
+            {homepage.companies.map((company, i) => (
+              <>
+                {i > 0 && <span class="text-base text-[#E5E2DC]">&middot;</span>}
+                <span class="text-base font-bold text-[#1A1A1A]">{company.name}</span>
+              </>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <!-- About -->
-      <h2 class="text-[13px] font-medium text-[#1A1A1A] text-center">About</h2>
+      <h2 class="text-[13px] font-medium text-[#1A1A1A] text-center">{homepage.aboutHeading || "About"}</h2>
       <p class="text-[15px] text-[#666666] leading-[1.7] text-center max-w-xl">
-        Your bio goes here. Write 2–3 sentences about what you do, who you've
-        done it for, and why you're different. Keep it conversational and
-        confident — let the work below speak for the rest.
+        {homepage.aboutText}
       </p>
 
       <!-- Scroll CTA -->
@@ -278,7 +230,7 @@ const tabs = [
                         class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.5px] hover:opacity-70 transition-opacity w-fit"
                         style={`color: ${tab.accent}`}
                       >
-                        {tab.cta}
+                        {tab.ctaText}
                         <span>→</span>
                       </a>
                     </div>
@@ -296,10 +248,10 @@ const tabs = [
   <footer class="w-full border-t border-[#E5E2DC] px-6 py-8 md:px-16">
     <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
       <span class="text-xs text-[#999999]">
-        © 2026 Vian. Growth Marketer.
+        &copy; {settings.footerCopyright}
       </span>
       <span class="text-xs text-[#999999]">
-        Singapore
+        {settings.footerLocation}
       </span>
     </div>
   </footer>
@@ -309,15 +261,15 @@ const tabs = [
     const tabPanels = document.querySelectorAll('.tab-panel');
 
     let currentTab = 'pmm';
-    const activeIdx = {};
-    const timers = {};
+    const activeIdx: Record<string, number> = {};
+    const timers: Record<string, ReturnType<typeof setTimeout> | null> = {};
 
     // Initialize metric index for each tab
     tabPanels.forEach((panel) => {
-      activeIdx[panel.getAttribute('data-panel')] = 0;
+      activeIdx[panel.getAttribute('data-panel')!] = 0;
     });
 
-    function activateMetric(tabId, index) {
+    function activateMetric(tabId: string, index: number) {
       const panel = document.querySelector(`[data-panel="${tabId}"]`);
       if (!panel) return;
 
@@ -325,7 +277,7 @@ const tabs = [
 
       // Dim/highlight metric rows
       panel.querySelectorAll('.metric-row').forEach((row, i) => {
-        row.style.opacity = i === index ? '1' : '0.35';
+        (row as HTMLElement).style.opacity = i === index ? '1' : '0.35';
       });
 
       // Fade detail panels
@@ -341,28 +293,29 @@ const tabs = [
 
       // Progress bar: reset then fill over ROTATION_MS
       panel.querySelectorAll('.metric-progress-bar').forEach((bar, i) => {
-        bar.style.transition = 'none';
-        bar.style.width = '0%';
+        (bar as HTMLElement).style.transition = 'none';
+        (bar as HTMLElement).style.width = '0%';
         if (i === index) {
-          void bar.offsetHeight; // force reflow
-          bar.style.transition = `width ${ROTATION_MS}ms linear`;
-          bar.style.width = '100%';
+          void (bar as HTMLElement).offsetHeight; // force reflow
+          (bar as HTMLElement).style.transition = `width ${ROTATION_MS}ms linear`;
+          (bar as HTMLElement).style.width = '100%';
         }
       });
     }
 
-    function startRotation(tabId) {
+    function startRotation(tabId: string) {
       stopRotation(tabId);
+      const metricCount = document.querySelector(`[data-panel="${tabId}"]`)?.querySelectorAll('.metric-row').length || 3;
       timers[tabId] = setTimeout(() => {
-        const next = ((activeIdx[tabId] || 0) + 1) % 3;
+        const next = ((activeIdx[tabId] || 0) + 1) % metricCount;
         activateMetric(tabId, next);
         startRotation(tabId);
       }, ROTATION_MS);
     }
 
-    function stopRotation(tabId) {
+    function stopRotation(tabId: string) {
       if (timers[tabId]) {
-        clearTimeout(timers[tabId]);
+        clearTimeout(timers[tabId]!);
         timers[tabId] = null;
       }
     }
@@ -370,7 +323,7 @@ const tabs = [
     // Tab switching
     tabButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const tabId = btn.getAttribute('data-tab');
+        const tabId = btn.getAttribute('data-tab')!;
         if (tabId === currentTab) return;
 
         stopRotation(currentTab);
@@ -403,11 +356,11 @@ const tabs = [
     document.querySelectorAll('.metric-row').forEach((row) => {
       row.addEventListener('click', (e) => {
         // Don't trigger if chevron link was clicked
-        if (e.target.closest('.metric-chevron')) return;
+        if ((e.target as HTMLElement).closest('.metric-chevron')) return;
 
-        const panel = row.closest('.tab-panel');
-        const tabId = panel.getAttribute('data-panel');
-        const idx = parseInt(row.getAttribute('data-metric-idx'));
+        const panel = row.closest('.tab-panel')!;
+        const tabId = panel.getAttribute('data-panel')!;
+        const idx = parseInt(row.getAttribute('data-metric-idx')!);
 
         stopRotation(tabId);
         activateMetric(tabId, idx);
@@ -423,7 +376,10 @@ const tabs = [
     });
 
     // Boot: activate first metric on first tab
-    activateMetric('pmm', 0);
-    startRotation('pmm');
+    const firstTabId = document.querySelector('.tab-panel')?.getAttribute('data-panel');
+    if (firstTabId) {
+      activateMetric(firstTabId, 0);
+      startRotation(firstTabId);
+    }
   </script>
 </Layout>
