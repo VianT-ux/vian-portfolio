@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "start": "tinacms dev -c \"astro dev\"",
-    "build": "tinacms build --skip-cloud-checks && astro build",
+    "build": "tinacms build --local && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
