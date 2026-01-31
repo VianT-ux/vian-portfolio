@@ -171,6 +171,13 @@ export default defineConfig({
                 type: "string",
                 required: true,
               },
+              {
+                name: "logo",
+                label: "Company Logo",
+                type: "image",
+                description:
+                  "Upload a company logo image (PNG or SVG recommended). Displayed at ~36px height in grayscale.",
+              },
             ],
           },
           {
@@ -248,6 +255,13 @@ export default defineConfig({
                 type: "string",
               },
               {
+                name: "ctaUrl",
+                label: "CTA Link URL",
+                type: "string",
+                description:
+                  'URL for the CTA link. Can be an internal path (e.g. "/case-studies/shopee") or external URL.',
+              },
+              {
                 name: "metrics",
                 label: "Metrics",
                 type: "object",
@@ -281,6 +295,13 @@ export default defineConfig({
                     },
                     description:
                       "Full narrative explanation (shown in the detail panel on desktop)",
+                  },
+                  {
+                    name: "url",
+                    label: "Link URL",
+                    type: "string",
+                    description:
+                      'URL for the chevron button. Can be an internal path (e.g. "/case-studies/shopee") or external URL.',
                   },
                 ],
               },
