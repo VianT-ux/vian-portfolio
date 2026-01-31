@@ -19,6 +19,10 @@ const seo = homepage.seo;
 const pageTitle = seo?.metaTitle || "Vian | Growth Marketer";
 const pageDescription = seo?.metaDescription || "Growth Marketer | SE Asia";
 const ogImage = seo?.ogImage || "";
+
+// Prepare logo set for conveyor belt (triple the list so it fills the viewport width)
+const companies = homepage.companies?.filter(Boolean) || [];
+const logoSet = [...companies, ...companies, ...companies];
 ---
 
 <Layout title={pageTitle} description={pageDescription} ogImage={ogImage}>
@@ -114,22 +118,52 @@ const ogImage = seo?.ogImage || "";
         {homepage.subtitle}
       </p>
 
-      <!-- Logo Bar (Pill) -->
-      {homepage.companies && homepage.companies.length > 0 && (
-        <div class="flex flex-col items-center gap-3 border border-[#E5E2DC] rounded-full px-8 md:px-10 py-5">
-          <span class="text-[13px] text-[#666666]">{homepage.shippedResultsLabel}</span>
-          <div class="flex items-center gap-5 md:gap-6">
-            {homepage.companies.map((company, i) => (
-              <>
-                {i > 0 && <span class="text-base text-[#E5E2DC]">&middot;</span>}
-                <span class="text-base font-bold text-[#1A1A1A]">{company.name}</span>
-              </>
-            ))}
-          </div>
-        </div>
+      <!-- "Shipped results for" label -->
+      {companies.length > 0 && (
+        <span class="text-[13px] text-[#666666]">{homepage.shippedResultsLabel}</span>
       )}
+    </section>
 
-      <!-- About -->
+    <!-- Company Logo Conveyor Belt -->
+    {companies.length > 0 && (
+      <div class="logo-conveyor relative w-full overflow-hidden py-6">
+        <div class="logo-track flex items-center gap-12 md:gap-16">
+          {/* Set 1 */}
+          {logoSet.map((company) => (
+            <div class="flex-shrink-0">
+              {company.logo ? (
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  class="h-8 md:h-9 w-auto object-contain grayscale opacity-60"
+                  loading="lazy"
+                />
+              ) : (
+                <span class="text-base font-bold text-[#1A1A1A] opacity-40 whitespace-nowrap">{company.name}</span>
+              )}
+            </div>
+          ))}
+          {/* Set 2 (identical duplicate for seamless loop) */}
+          {logoSet.map((company) => (
+            <div class="flex-shrink-0">
+              {company.logo ? (
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  class="h-8 md:h-9 w-auto object-contain grayscale opacity-60"
+                  loading="lazy"
+                />
+              ) : (
+                <span class="text-base font-bold text-[#1A1A1A] opacity-40 whitespace-nowrap">{company.name}</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- About -->
+    <section class="flex flex-col items-center gap-8 px-6 pb-16 md:px-20">
       <h2 class="text-[13px] font-medium text-[#1A1A1A] text-center">{homepage.aboutHeading || "About"}</h2>
       <p class="text-[15px] text-[#666666] leading-[1.7] text-center max-w-xl">
         {homepage.aboutText}
@@ -195,13 +229,31 @@ const ogImage = seo?.ogImage || "";
                       </p>
                     </div>
                     <a
-                      href="#"
-                      class="metric-chevron w-10 h-10 rounded-full border border-[#E5E2DC] flex items-center justify-center flex-shrink-0 hover:border-[#999999] transition-colors"
+                      href={metric.url || "#"}
+                      class="metric-chevron w-10 h-10 rounded-full border border-[#E5E2DC] flex items-center justify-center flex-shrink-0 hover:border-[#999999] transition-colors relative"
                       aria-label="View case study"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="9 18 15 12 9 6"></polyline>
                       </svg>
+                      {metric.url?.startsWith("http") && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="8"
+                          height="8"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#999999"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="absolute top-1 right-1"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                      )}
                     </a>
                     {/* Progress bar overlays border-bottom */}
                     <div class="absolute bottom-0 left-0 right-0 h-[2px]">
@@ -226,12 +278,30 @@ const ogImage = seo?.ogImage || "";
                         {metric.detail}
                       </p>
                       <a
-                        href="#"
+                        href={tab.ctaUrl || "#"}
                         class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.5px] hover:opacity-70 transition-opacity w-fit"
                         style={`color: ${tab.accent}`}
                       >
                         {tab.ctaText}
-                        <span>→</span>
+                        {tab.ctaUrl?.startsWith("http") ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                          </svg>
+                        ) : (
+                          <span>→</span>
+                        )}
                       </a>
                     </div>
                   ))}

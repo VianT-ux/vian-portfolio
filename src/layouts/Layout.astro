@@ -104,4 +104,34 @@ const canonicalUrl = Astro.url.href;
   .tracking-logo {
     letter-spacing: 4px;
   }
+
+  /* Logo Conveyor Belt Animation */
+  @keyframes conveyor-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .logo-track {
+    animation: conveyor-scroll 30s linear infinite;
+    width: max-content;
+  }
+
+  .logo-conveyor:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  .logo-conveyor {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-track {
+      animation: none;
+    }
+  }
 </style>
