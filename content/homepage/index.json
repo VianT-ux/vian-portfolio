@@ -1,24 +1,21 @@
 {
   "headline": "Hi, I'm Vian Twoon Wai Yuen",
-  "subtitle": "Growth Strategist · SE Asia",
-  "photo": "",
+  "subtitle": "Product Growth Strategist · SE Asia",
+  "photo": "/uploads/IMG_20200927_114221_460 (1).jpg",
   "shippedResultsLabel": "Shipped results for",
   "companies": [
     {
-      "name": "Shopee",
-      "logo": ""
+      "name": "Shopee"
     },
     {
-      "name": "StashAway",
-      "logo": ""
+      "name": "StashAway"
     },
     {
-      "name": "Carsome",
-      "logo": ""
+      "name": "Carsome"
     }
   ],
   "aboutHeading": "About",
-  "aboutText": "Your bio goes here. Write 2–3 sentences about what you do, who you've done it for, and why you're different. Keep it conversational and confident — let the work below speak for the rest.",
+  "aboutText": "Hi! Thank you for visiting my site. I'm Vian. :)\n\nI spent my days working at StashAway specialized in product marketing and GTM strategy. Before that, I worked on partnerships and campaigns for companies like Carsome (integrated them into TNGD) and Shopee (managing their beverage category) \n\nAs a perpetual early bird, I'm always tinkering on new AI tools. Since teaching myself vibe coding, I've build this website and some side projects (Transcription agent is my proudest).\n\nMy latest project is operationalizing a research agent (still in progress) which helps you make sense of all the incredible data online. ",
   "seo": {
     "metaTitle": "Vian | Growth Marketer",
     "metaDescription": "Growth Marketer | SE Asia",
