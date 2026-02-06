@@ -84,7 +84,7 @@ const logoSet = [...companies, ...companies, ...companies];
 
   <main class="w-full max-w-[1440px] mx-auto flex flex-col">
     <!-- Topfold -->
-    <section class="flex flex-col items-center gap-8 px-6 py-16 md:px-20 md:py-16">
+    <section class="flex flex-col items-center gap-8 px-6 pt-16 pb-2 md:px-20 md:pt-16 md:pb-2">
       {/* Photo — hidden when no image is uploaded */}
       {homepage.photo && (
         <div
@@ -112,7 +112,7 @@ const logoSet = [...companies, ...companies, ...companies];
 
     <!-- Company Logo Conveyor Belt -->
     {companies.length > 0 && (
-      <div class="logo-conveyor relative w-full overflow-hidden py-6">
+      <div class="logo-conveyor relative w-full overflow-hidden pt-2 pb-6">
         <div class="logo-track flex items-center gap-12 md:gap-16">
           {/* Set 1 */}
           {logoSet.map((company) => (
@@ -150,25 +150,27 @@ const logoSet = [...companies, ...companies, ...companies];
 
     <!-- About -->
     <section class="flex flex-col items-center gap-8 px-6 pb-16 md:px-20">
-      <h2 class="text-[13px] font-medium text-[#1A1A1A] text-center">{homepage.aboutHeading || "About"}</h2>
-      <p class="text-[15px] text-[#666666] leading-[1.7] text-center max-w-xl">
-        {homepage.aboutText}
-      </p>
+      <h2 class="text-[30px] font-medium text-[#1A1A1A] text-center">{homepage.aboutHeading || "About"}</h2>
+      <div class="flex flex-col gap-3 max-w-3xl">
+        {homepage.aboutText.split("\n\n").map((paragraph: string) => (
+          <p class="text-[15px] text-[#666666] leading-[1.7] text-center">
+            {paragraph}
+          </p>
+        ))}
+      </div>
 
       <!-- Scroll CTA -->
       <a href="#capabilities" class="text-xs font-medium text-[#999999] tracking-[0.5px] hover:text-[#666666] transition-colors">
-        ↓&ensp;See case studies
+        ↓&ensp;See Projects
       </a>
     </section>
 
     <!-- Capability Tabs Section -->
     <section id="capabilities" class="flex flex-col gap-8 px-6 py-12 md:px-20">
-      <!-- Section Divider -->
-      <div class="flex items-center justify-between border-t border-[#E5E2DC] pt-4">
-        <span class="text-[10px] font-bold text-[#1A1A1A] tracking-[2px] uppercase">
-          Capabilities
-        </span>
-      </div>
+      <!-- Section Heading -->
+      <h2 class="text-[30px] font-medium text-[#1A1A1A]">
+        Projects
+      </h2>
 
       <!-- Tab Navigation -->
       <div class="flex items-center border-b border-[#E5E2DC]">
