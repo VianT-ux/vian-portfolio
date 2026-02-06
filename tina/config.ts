@@ -147,6 +147,8 @@ export default defineConfig({
             name: "photo",
             label: "Profile Photo",
             type: "image",
+            description:
+              "Recommended: square image, at least 300×300px. Will be displayed as a circle.",
           },
           {
             name: "shippedResultsLabel",

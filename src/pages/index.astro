@@ -79,34 +79,20 @@ const logoSet = [...companies, ...companies, ...companies];
         RESUME
       </a>
 
-      <!-- Avatar -->
-      <div
-        class="w-8 h-8 bg-[#E8E5DF] flex items-center justify-center text-[10px] font-semibold text-[#666666]"
-      >
-        VN
-      </div>
     </div>
   </header>
 
   <main class="w-full max-w-[1440px] mx-auto flex flex-col">
     <!-- Topfold -->
     <section class="flex flex-col items-center gap-8 px-6 py-16 md:px-20 md:py-16">
-      <!-- Photo -->
-      <div
-        class="w-36 h-36 md:w-40 md:h-40 bg-[#F5F2ED] border border-[#E5E2DC] flex flex-col items-center justify-center gap-2 overflow-hidden flex-shrink-0"
-      >
-        {homepage.photo ? (
+      {/* Photo — hidden when no image is uploaded */}
+      {homepage.photo && (
+        <div
+          class="w-36 h-36 md:w-40 md:h-40 rounded-full shadow-md overflow-hidden flex-shrink-0 hover:shadow-lg transition-shadow duration-300"
+        >
           <img src={homepage.photo} alt={homepage.headline} class="w-full h-full object-cover" />
-        ) : (
-          <>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <span class="text-[10px] text-[#999999]">Your photo</span>
-          </>
-        )}
-      </div>
+        </div>
+      )}
 
       <!-- Headline -->
       <h1 class="font-display text-4xl md:text-5xl font-normal text-[#1A1A1A] tracking-[-1px] text-center">
