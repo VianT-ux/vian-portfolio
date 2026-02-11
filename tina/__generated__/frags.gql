@@ -1,0 +1,99 @@
+fragment HomepageParts on Homepage {
+  __typename
+  headline
+  subtitle
+  photo
+  shippedResultsLabel
+  companies {
+    __typename
+    name
+    logo
+  }
+  aboutHeading
+  aboutText
+  seo {
+    __typename
+    metaTitle
+    metaDescription
+    ogImage
+  }
+}
+
+fragment CapabilitiesParts on Capabilities {
+  __typename
+  tabs {
+    __typename
+    id
+    label
+    accent
+    ctaText
+    ctaUrl
+    metrics {
+      __typename
+      highlight
+      description
+      detail
+      image1
+      image2
+      image3
+      url
+    }
+  }
+}
+
+fragment CaseStudyParts on CaseStudy {
+  __typename
+  title
+  company
+  coverImage
+  tags
+  publishedDate
+  seo {
+    __typename
+    metaTitle
+    metaDescription
+    ogImage
+  }
+  body
+}
+
+fragment BlogPostParts on BlogPost {
+  __typename
+  title
+  excerpt
+  coverImage
+  tags
+  publishedDate
+  seo {
+    __typename
+    metaTitle
+    metaDescription
+    ogImage
+  }
+  body
+}
+
+fragment TestimonialsParts on Testimonials {
+  __typename
+  items {
+    __typename
+    quote
+    authorName
+    authorRole
+    authorAvatar
+  }
+}
+
+fragment SiteSettingsParts on SiteSettings {
+  __typename
+  logoText
+  resumeFile
+  footerCopyright
+  footerLocation
+  contactEmail
+  socialLinks {
+    __typename
+    platform
+    url
+  }
+}
