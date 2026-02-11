@@ -182,14 +182,14 @@ type CapabilitiesTabsMetrics {
   image2: String
   image3: String
   url: String
+  ctaText: String
+  ctaUrl: String
 }
 
 type CapabilitiesTabs {
   id: String!
   label: String!
   accent: String!
-  ctaText: String
-  ctaUrl: String
   metrics: [CapabilitiesTabsMetrics]
 }
 
@@ -208,14 +208,14 @@ input CapabilitiesTabsMetricsFilter {
   image2: ImageFilter
   image3: ImageFilter
   url: StringFilter
+  ctaText: StringFilter
+  ctaUrl: StringFilter
 }
 
 input CapabilitiesTabsFilter {
   id: StringFilter
   label: StringFilter
   accent: StringFilter
-  ctaText: StringFilter
-  ctaUrl: StringFilter
   metrics: CapabilitiesTabsMetricsFilter
 }
 
@@ -529,14 +529,14 @@ input CapabilitiesTabsMetricsMutation {
   image2: String
   image3: String
   url: String
+  ctaText: String
+  ctaUrl: String
 }
 
 input CapabilitiesTabsMutation {
   id: String
   label: String
   accent: String
-  ctaText: String
-  ctaUrl: String
   metrics: [CapabilitiesTabsMetricsMutation]
 }
 

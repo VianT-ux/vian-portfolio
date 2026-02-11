@@ -26,8 +26,6 @@ fragment CapabilitiesParts on Capabilities {
     id
     label
     accent
-    ctaText
-    ctaUrl
     metrics {
       __typename
       highlight
@@ -37,6 +35,8 @@ fragment CapabilitiesParts on Capabilities {
       image2
       image3
       url
+      ctaText
+      ctaUrl
     }
   }
 }

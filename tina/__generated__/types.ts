@@ -341,6 +341,8 @@ export type CapabilitiesTabsMetrics = {
   image2?: Maybe<Scalars['String']['output']>;
   image3?: Maybe<Scalars['String']['output']>;
   url?: Maybe<Scalars['String']['output']>;
+  ctaText?: Maybe<Scalars['String']['output']>;
+  ctaUrl?: Maybe<Scalars['String']['output']>;
 };
 
 export type CapabilitiesTabs = {
@@ -348,8 +350,6 @@ export type CapabilitiesTabs = {
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
   accent: Scalars['String']['output'];
-  ctaText?: Maybe<Scalars['String']['output']>;
-  ctaUrl?: Maybe<Scalars['String']['output']>;
   metrics?: Maybe<Array<Maybe<CapabilitiesTabsMetrics>>>;
 };
 
@@ -369,14 +369,14 @@ export type CapabilitiesTabsMetricsFilter = {
   image2?: InputMaybe<ImageFilter>;
   image3?: InputMaybe<ImageFilter>;
   url?: InputMaybe<StringFilter>;
+  ctaText?: InputMaybe<StringFilter>;
+  ctaUrl?: InputMaybe<StringFilter>;
 };
 
 export type CapabilitiesTabsFilter = {
   id?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
   accent?: InputMaybe<StringFilter>;
-  ctaText?: InputMaybe<StringFilter>;
-  ctaUrl?: InputMaybe<StringFilter>;
   metrics?: InputMaybe<CapabilitiesTabsMetricsFilter>;
 };
 
@@ -814,14 +814,14 @@ export type CapabilitiesTabsMetricsMutation = {
   image2?: InputMaybe<Scalars['String']['input']>;
   image3?: InputMaybe<Scalars['String']['input']>;
   url?: InputMaybe<Scalars['String']['input']>;
+  ctaText?: InputMaybe<Scalars['String']['input']>;
+  ctaUrl?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CapabilitiesTabsMutation = {
   id?: InputMaybe<Scalars['String']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
   accent?: InputMaybe<Scalars['String']['input']>;
-  ctaText?: InputMaybe<Scalars['String']['input']>;
-  ctaUrl?: InputMaybe<Scalars['String']['input']>;
   metrics?: InputMaybe<Array<InputMaybe<CapabilitiesTabsMetricsMutation>>>;
 };
 
@@ -888,7 +888,7 @@ export type SiteSettingsMutation = {
 
 export type HomepagePartsFragment = { __typename: 'Homepage', headline: string, subtitle: string, photo?: string | null, shippedResultsLabel?: string | null, aboutHeading?: string | null, aboutText?: string | null, companies?: Array<{ __typename: 'HomepageCompanies', name: string, logo?: string | null } | null> | null, seo?: { __typename: 'HomepageSeo', metaTitle?: string | null, metaDescription?: string | null, ogImage?: string | null } | null };
 
-export type CapabilitiesPartsFragment = { __typename: 'Capabilities', tabs?: Array<{ __typename: 'CapabilitiesTabs', id: string, label: string, accent: string, ctaText?: string | null, ctaUrl?: string | null, metrics?: Array<{ __typename: 'CapabilitiesTabsMetrics', highlight: string, description: string, detail?: string | null, image1?: string | null, image2?: string | null, image3?: string | null, url?: string | null } | null> | null } | null> | null };
+export type CapabilitiesPartsFragment = { __typename: 'Capabilities', tabs?: Array<{ __typename: 'CapabilitiesTabs', id: string, label: string, accent: string, metrics?: Array<{ __typename: 'CapabilitiesTabsMetrics', highlight: string, description: string, detail?: string | null, image1?: string | null, image2?: string | null, image3?: string | null, url?: string | null, ctaText?: string | null, ctaUrl?: string | null } | null> | null } | null> | null };
 
 export type CaseStudyPartsFragment = { __typename: 'CaseStudy', title: string, company?: string | null, coverImage?: string | null, tags?: Array<string | null> | null, publishedDate?: string | null, body?: any | null, seo?: { __typename: 'CaseStudySeo', metaTitle?: string | null, metaDescription?: string | null, ogImage?: string | null } | null };
 
@@ -922,7 +922,7 @@ export type CapabilitiesQueryVariables = Exact<{
 }>;
 
 
-export type CapabilitiesQuery = { __typename?: 'Query', capabilities: { __typename: 'Capabilities', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, tabs?: Array<{ __typename: 'CapabilitiesTabs', id: string, label: string, accent: string, ctaText?: string | null, ctaUrl?: string | null, metrics?: Array<{ __typename: 'CapabilitiesTabsMetrics', highlight: string, description: string, detail?: string | null, image1?: string | null, image2?: string | null, image3?: string | null, url?: string | null } | null> | null } | null> | null } };
+export type CapabilitiesQuery = { __typename?: 'Query', capabilities: { __typename: 'Capabilities', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, tabs?: Array<{ __typename: 'CapabilitiesTabs', id: string, label: string, accent: string, metrics?: Array<{ __typename: 'CapabilitiesTabsMetrics', highlight: string, description: string, detail?: string | null, image1?: string | null, image2?: string | null, image3?: string | null, url?: string | null, ctaText?: string | null, ctaUrl?: string | null } | null> | null } | null> | null } };
 
 export type CapabilitiesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -934,7 +934,7 @@ export type CapabilitiesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type CapabilitiesConnectionQuery = { __typename?: 'Query', capabilitiesConnection: { __typename?: 'CapabilitiesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'CapabilitiesConnectionEdges', cursor: string, node?: { __typename: 'Capabilities', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, tabs?: Array<{ __typename: 'CapabilitiesTabs', id: string, label: string, accent: string, ctaText?: string | null, ctaUrl?: string | null, metrics?: Array<{ __typename: 'CapabilitiesTabsMetrics', highlight: string, description: string, detail?: string | null, image1?: string | null, image2?: string | null, image3?: string | null, url?: string | null } | null> | null } | null> | null } | null } | null> | null } };
+export type CapabilitiesConnectionQuery = { __typename?: 'Query', capabilitiesConnection: { __typename?: 'CapabilitiesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'CapabilitiesConnectionEdges', cursor: string, node?: { __typename: 'Capabilities', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, tabs?: Array<{ __typename: 'CapabilitiesTabs', id: string, label: string, accent: string, metrics?: Array<{ __typename: 'CapabilitiesTabsMetrics', highlight: string, description: string, detail?: string | null, image1?: string | null, image2?: string | null, image3?: string | null, url?: string | null, ctaText?: string | null, ctaUrl?: string | null } | null> | null } | null> | null } | null } | null> | null } };
 
 export type CaseStudyQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -1042,8 +1042,6 @@ export const CapabilitiesPartsFragmentDoc = gql`
     id
     label
     accent
-    ctaText
-    ctaUrl
     metrics {
       __typename
       highlight
@@ -1053,6 +1051,8 @@ export const CapabilitiesPartsFragmentDoc = gql`
       image2
       image3
       url
+      ctaText
+      ctaUrl
     }
   }
 }
