@@ -1,0 +1,612 @@
+{
+  "version": "2.7",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": -237,
+      "y": -26,
+      "name": "Vian Portfolio - Topfold",
+      "clip": true,
+      "width": 1440,
+      "fill": "#FDFCF9",
+      "layout": "vertical",
+      "gap": 32,
+      "padding": [
+        64,
+        80
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VZ79Z",
+          "name": "Photo Placeholder",
+          "width": 160,
+          "height": 160,
+          "fill": "#F5F2ED",
+          "layout": "vertical",
+          "gap": 8,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "um49Q",
+              "name": "pIcon",
+              "fill": "#999999",
+              "content": "☺",
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "BnRk3",
+              "name": "pLabel",
+              "fill": "#999999",
+              "content": "Your photo",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "1fBuW",
+          "name": "Headline",
+          "fill": "#1A1A1A",
+          "content": "Hi, I'm Vian Twoon Wai Yuen",
+          "textAlign": "center",
+          "fontFamily": "Playfair Display",
+          "fontSize": 48,
+          "fontWeight": "normal",
+          "letterSpacing": -1
+        },
+        {
+          "type": "text",
+          "id": "DYvnz",
+          "name": "Subtitle",
+          "fill": "#999999",
+          "content": "Growth Strategist · SE Asia",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1
+        },
+        {
+          "type": "frame",
+          "id": "LTol3",
+          "name": "Logo Pill",
+          "cornerRadius": 999,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            20,
+            40
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "9f1Zw",
+              "name": "pillLabel",
+              "fill": "#666666",
+              "content": "Shipped results for",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "mKZhG",
+              "name": "pillRow",
+              "gap": 20,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Drw8W",
+                  "name": "b1",
+                  "fill": "#1A1A1A",
+                  "content": "Shopee",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "fitM3",
+                  "name": "dot1",
+                  "fill": "#E5E2DC",
+                  "content": "·",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "mMNbk",
+                  "name": "b2",
+                  "fill": "#1A1A1A",
+                  "content": "StashAway",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "dHCUG",
+                  "name": "dot2",
+                  "fill": "#E5E2DC",
+                  "content": "·",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "i0Ykb",
+                  "name": "b3",
+                  "fill": "#1A1A1A",
+                  "content": "Carsome",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "eLSSB",
+          "name": "About Heading",
+          "fill": "#1A1A1A",
+          "content": "About",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "500"
+        },
+        {
+          "type": "text",
+          "id": "gLEY4",
+          "name": "About Body",
+          "fill": "#666666",
+          "textGrowth": "fixed-width",
+          "width": 560,
+          "content": "Your bio goes here. Write 2–3 sentences about what you do, who you've done it for, and why you're different. Keep it conversational and confident — let the work below speak for the rest.",
+          "lineHeight": 1.7,
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "SG6SW",
+          "name": "Scroll CTA",
+          "fill": "#999999",
+          "content": "↓  See case studies",
+          "fontFamily": "Inter",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "letterSpacing": 0.5
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "lGVUr",
+      "x": -237,
+      "y": 791,
+      "name": "Vian Portfolio - Capabilities",
+      "clip": true,
+      "width": 1440,
+      "fill": "#FDFCF9",
+      "layout": "vertical",
+      "gap": 32,
+      "padding": [
+        48,
+        80
+      ],
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "yFSpd",
+          "name": "Section Divider",
+          "fill": "#E5E2DC",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "jFbeA",
+          "name": "Section Label",
+          "fill": "#1A1A1A",
+          "content": "Career",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "700",
+          "letterSpacing": 2
+        },
+        {
+          "type": "frame",
+          "id": "DPnQY",
+          "name": "Tab Navigation",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "lbegP",
+              "name": "Tab Bar",
+              "width": "fill_container",
+              "gap": 24,
+              "padding": [
+                0,
+                0,
+                12,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "2npjD",
+                  "name": "Tab Active",
+                  "fill": "#1A1A1A",
+                  "content": "Product Marketing",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.5
+                },
+                {
+                  "type": "text",
+                  "id": "Y5pUX",
+                  "name": "Tab Inactive 1",
+                  "fill": "#999999",
+                  "content": "Growth & Lifecycle",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.5
+                },
+                {
+                  "type": "text",
+                  "id": "z9g3y",
+                  "name": "Tab Inactive 2",
+                  "fill": "#999999",
+                  "content": "Commercial Strategy",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.5
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "SVcrh",
+              "name": "Tab Underline",
+              "fill": "#E5E2DC",
+              "width": "fill_container",
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "eZH6L",
+          "name": "Tab Content",
+          "width": "fill_container",
+          "children": [
+            {
+              "type": "frame",
+              "id": "AYg9W",
+              "name": "Metrics Column",
+              "width": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                0,
+                32,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "057xd",
+                  "name": "Metric Row 1",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GPmqP",
+                      "name": "Info 1",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IUXM0",
+                          "name": "ht1",
+                          "fill": "#3D7B6E",
+                          "content": "164%",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 30,
+                          "fontWeight": "600",
+                          "letterSpacing": -1
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZWlPd",
+                          "name": "dt1",
+                          "fill": "#666666",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Increase in USD Portfolio net deposits post-launch",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5TR4f",
+                      "name": "Chevron 1",
+                      "width": 40,
+                      "height": 40,
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ZppHk",
+                          "name": "ct1",
+                          "fill": "#999999",
+                          "content": ">",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "cPgiR",
+                  "name": "Progress Bar",
+                  "fill": "#3D7B6E",
+                  "width": 360,
+                  "height": 2
+                },
+                {
+                  "type": "frame",
+                  "id": "oA6ea",
+                  "name": "Metric Row 2",
+                  "opacity": 0.35,
+                  "width": "fill_container",
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "SWecs",
+                      "name": "Info 2",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "inUkf",
+                          "name": "ht2",
+                          "fill": "#3D7B6E",
+                          "content": "35% MoM",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 30,
+                          "fontWeight": "600",
+                          "letterSpacing": -1
+                        },
+                        {
+                          "type": "text",
+                          "id": "cmN2a",
+                          "name": "dt2",
+                          "fill": "#666666",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Growth in acquisition via Homepage Revamp",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kv1dB",
+                      "name": "Chevron 2",
+                      "width": 40,
+                      "height": 40,
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ut5xc",
+                          "name": "ct2",
+                          "fill": "#999999",
+                          "content": ">",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "aW7kN",
+                  "name": "Divider 2",
+                  "fill": "#E5E2DC",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "IQG44",
+                  "name": "Metric Row 3",
+                  "opacity": 0.35,
+                  "width": "fill_container",
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Sex7u",
+                      "name": "Info 3",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "lmDAy",
+                          "name": "ht3",
+                          "fill": "#3D7B6E",
+                          "content": ">5%",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 30,
+                          "fontWeight": "600",
+                          "letterSpacing": -1
+                        },
+                        {
+                          "type": "text",
+                          "id": "f1Efi",
+                          "name": "dt3",
+                          "fill": "#666666",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Revenue growth in Juice Category via PMF analysis",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "6HOMB",
+                      "name": "Chevron 3",
+                      "width": 40,
+                      "height": 40,
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mBr02",
+                          "name": "ct3",
+                          "fill": "#999999",
+                          "content": ">",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "ljp1t",
+                  "name": "Divider 3",
+                  "fill": "#E5E2DC",
+                  "width": "fill_container",
+                  "height": 1
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "NE18H",
+              "name": "Vertical Divider",
+              "fill": "#E5E2DC",
+              "width": 1,
+              "height": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "Gvqfr",
+              "name": "Detail Column",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                0,
+                0,
+                0,
+                32
+              ],
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XrKYS",
+                  "name": "Detail Text",
+                  "fill": "#666666",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Launched the USD Portfolio product with a full GTM strategy, aligning product positioning with customer education campaigns that drove a 164% surge in net deposits within the first quarter.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "GXctd",
+                  "name": "CTA Link",
+                  "fill": "#3D7B6E",
+                  "content": "View GTM Case Studies →",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
