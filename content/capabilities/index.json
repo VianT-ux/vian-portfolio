@@ -5,7 +5,7 @@
       "label": "Product Marketing",
       "accent": "#3D7B6E",
       "ctaText": "View GTM Case Studies",
-      "ctaUrl": "",
+      "ctaUrl": "#",
       "metrics": [
         {
           "highlight": "164%",
@@ -14,7 +14,7 @@
           "image1": "https://assets.tina.io/a9696405-5198-489e-bfa8-bb0422fbcce9/Screenshot%202026-02-04%20103133.png",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         },
         {
           "highlight": "35% MoM",
@@ -23,7 +23,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         },
         {
           "highlight": ">5%",
@@ -32,7 +32,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         }
       ]
     },
@@ -41,7 +41,7 @@
       "label": "Growth & Lifecycle",
       "accent": "#5A6E8A",
       "ctaText": "View Retention Framework",
-      "ctaUrl": "",
+      "ctaUrl": "#",
       "metrics": [
         {
           "highlight": "2x",
@@ -50,7 +50,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         },
         {
           "highlight": "17%",
@@ -59,7 +59,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         },
         {
           "highlight": "200%",
@@ -68,7 +68,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         }
       ]
     },
@@ -77,7 +77,7 @@
       "label": "Commercial Strategy",
       "accent": "#8A6A7E",
       "ctaText": "View Commercial Wins",
-      "ctaUrl": "",
+      "ctaUrl": "#",
       "metrics": [
         {
           "highlight": "37%",
@@ -86,7 +86,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         },
         {
           "highlight": "300%",
@@ -95,7 +95,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         },
         {
           "highlight": "6 Months",
@@ -104,7 +104,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": ""
+          "url": "#"
         }
       ]
     }
