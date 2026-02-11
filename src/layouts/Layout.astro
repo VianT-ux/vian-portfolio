@@ -133,4 +133,13 @@ const canonicalUrl = Astro.url.href;
       animation: none;
     }
   }
+
+  /* Hide scrollbar for image scroll containers */
+  .image-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .image-scroll::-webkit-scrollbar {
+    display: none;
+  }
 </style>

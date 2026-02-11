@@ -202,16 +202,54 @@ const logoSet = [...companies, ...companies, ...companies];
               <div class="flex flex-col md:pr-8">
                 {tab.metrics.map((metric, j) => (
                   <div
-                    class={`metric-row relative flex items-center gap-4 py-5 border-b border-[#E5E2DC] cursor-pointer transition-opacity duration-300 ${j === 0 ? "" : "opacity-[0.35]"}`}
+                    class={`metric-row relative flex items-start gap-4 py-5 border-b border-[#E5E2DC] cursor-pointer transition-opacity duration-300 ${j === 0 ? "" : "opacity-[0.35]"}`}
                     data-metric-idx={String(j)}
                   >
-                    <div class="flex-1">
+                    <div class="flex-1 min-w-0">
                       <span
                         class="font-mono text-3xl font-semibold tracking-[-1px]"
                         style={`color: ${tab.accent}`}
                       >
                         {metric.highlight}
                       </span>
+
+                      {/* Image Showcase */}
+                      {metric.images && metric.images.length > 0 && (
+                        <div class="metric-images mt-3 mb-2">
+                          {/* Desktop: row layout */}
+                          <div class={`hidden md:flex gap-3 ${metric.images.length === 1 ? 'justify-center' : ''}`}>
+                            {metric.images.map((img: string) => (
+                              <div
+                                class={`rounded-lg shadow-md overflow-hidden ${
+                                  metric.images.length === 1 ? 'w-[65%]' : 'flex-1'
+                                }`}
+                                style="height: 250px;"
+                              >
+                                <img src={img} alt="" class="w-full h-full object-cover" loading="lazy" />
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Mobile: horizontal scroll with peek */}
+                          <div class="md:hidden">
+                            <div class="image-scroll flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 -mr-6 pr-6" style="-webkit-overflow-scrolling: touch;">
+                              {metric.images.map((img: string) => (
+                                <div class="flex-shrink-0 w-[200px] h-[150px] rounded-lg shadow-md overflow-hidden snap-start">
+                                  <img src={img} alt="" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                              ))}
+                            </div>
+                            {metric.images.length > 1 && (
+                              <div class="image-dots flex justify-center gap-1.5 mt-2">
+                                {metric.images.map((_: string, idx: number) => (
+                                  <div class={`dot w-1.5 h-1.5 rounded-full transition-colors duration-200 ${idx === 0 ? 'bg-[#666666]' : 'bg-[#E5E2DC]'}`}></div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
                       <p class="text-[13px] text-[#666666] leading-[1.5] mt-1">
                         {metric.description}
                       </p>
@@ -439,5 +477,29 @@ const logoSet = [...companies, ...companies, ...companies];
       activateMetric(firstTabId, 0);
       startRotation(firstTabId);
     }
+
+    // Image scroll dot indicators (mobile)
+    document.querySelectorAll('.image-scroll').forEach((scroller) => {
+      const dotsContainer = scroller.parentElement?.querySelector('.image-dots');
+      if (!dotsContainer) return;
+      const dots = dotsContainer.querySelectorAll('.dot');
+      const items = scroller.querySelectorAll(':scope > div');
+      if (items.length <= 1) return;
+
+      scroller.addEventListener('scroll', () => {
+        const scrollLeft = scroller.scrollLeft;
+        const itemWidth = (items[0] as HTMLElement).offsetWidth + 12; // 12 = gap-3
+        const activeIndex = Math.round(scrollLeft / itemWidth);
+        dots.forEach((dot, i) => {
+          if (i === activeIndex) {
+            dot.classList.remove('bg-[#E5E2DC]');
+            dot.classList.add('bg-[#666666]');
+          } else {
+            dot.classList.remove('bg-[#666666]');
+            dot.classList.add('bg-[#E5E2DC]');
+          }
+        });
+      }, { passive: true });
+    });
   </script>
 </Layout>

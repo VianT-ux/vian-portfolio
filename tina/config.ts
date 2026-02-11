@@ -299,6 +299,14 @@ export default defineConfig({
                       "Full narrative explanation (shown in the detail panel on desktop)",
                   },
                   {
+                    name: "images",
+                    label: "Project Images",
+                    type: "image",
+                    list: true,
+                    description:
+                      "Up to 3 images showcasing the work (screenshots, campaign assets, analytics, etc.)",
+                  },
+                  {
                     name: "url",
                     label: "Link URL",
                     type: "string",
