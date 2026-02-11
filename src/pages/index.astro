@@ -243,11 +243,49 @@ function getMetricImages(metric: any): string[] {
                       <p class="text-[13px] text-[#666666] leading-[1.5] mt-1">
                         {metric.description}
                       </p>
+                      {/* Mobile: detail text + CTA (hidden by default, shown for active metric via JS) */}
+                      <div class="metric-mobile-detail md:hidden hidden mt-3">
+                        {metric.detail && (
+                          <p class="text-[13px] text-[#666666] leading-[1.6] mb-2">
+                            {metric.detail}
+                          </p>
+                        )}
+                        {metric.ctaText && (
+                          <a
+                            href={metric.ctaUrl || "#"}
+                            class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.5px] hover:opacity-70 transition-opacity w-fit"
+                            style={`color: ${tab.accent}`}
+                            {...(metric.ctaUrl?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                          >
+                            {metric.ctaText}
+                            {metric.ctaUrl?.startsWith("http") ? (
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="12"
+                                height="12"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                              </svg>
+                            ) : (
+                              <span>→</span>
+                            )}
+                          </a>
+                        )}
+                      </div>
                     </div>
                     <a
                       href={metric.url || "#"}
-                      class="metric-chevron w-10 h-10 rounded-full border border-[#E5E2DC] flex items-center justify-center flex-shrink-0 hover:border-[#999999] transition-colors relative"
+                      class="metric-chevron w-10 h-10 rounded-full border border-[#E5E2DC] flex items-center justify-center flex-shrink-0 hover:border-[#666666] hover:scale-110 transition-all duration-200 relative"
                       aria-label="View case study"
+                      {...(metric.url?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="9 18 15 12 9 6"></polyline>
@@ -312,32 +350,35 @@ function getMetricImages(metric: any): string[] {
                       <p class="text-[15px] text-[#666666] leading-[1.7]">
                         {metric.detail}
                       </p>
-                      <a
-                        href={tab.ctaUrl || "#"}
-                        class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.5px] hover:opacity-70 transition-opacity w-fit"
-                        style={`color: ${tab.accent}`}
-                      >
-                        {tab.ctaText}
-                        {tab.ctaUrl?.startsWith("http") ? (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="12"
-                            height="12"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                          </svg>
-                        ) : (
-                          <span>→</span>
-                        )}
-                      </a>
+                      {metric.ctaText && (
+                        <a
+                          href={metric.ctaUrl || "#"}
+                          class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.5px] hover:opacity-70 transition-opacity w-fit"
+                          style={`color: ${tab.accent}`}
+                          {...(metric.ctaUrl?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        >
+                          {metric.ctaText}
+                          {metric.ctaUrl?.startsWith("http") ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="12"
+                              height="12"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                              <polyline points="15 3 21 3 21 9"></polyline>
+                              <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                          ) : (
+                            <span>→</span>
+                          )}
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -380,9 +421,17 @@ function getMetricImages(metric: any): string[] {
 
       activeIdx[tabId] = index;
 
-      // Dim/highlight metric rows
+      // Dim/highlight metric rows + toggle mobile detail
       panel.querySelectorAll('.metric-row').forEach((row, i) => {
         (row as HTMLElement).style.opacity = i === index ? '1' : '0.35';
+        const mobileDetail = row.querySelector('.metric-mobile-detail');
+        if (mobileDetail) {
+          if (i === index) {
+            mobileDetail.classList.remove('hidden');
+          } else {
+            mobileDetail.classList.add('hidden');
+          }
+        }
       });
 
       // Fade detail panels

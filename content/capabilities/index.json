@@ -4,7 +4,6 @@
       "id": "pmm",
       "label": "Product Marketing",
       "accent": "#3D7B6E",
-      "ctaText": "View GTM Case Studies",
       "metrics": [
         {
           "highlight": "164%",
@@ -13,7 +12,9 @@
           "image1": "/uploads/Screenshot 2026-02-04 103133.png",
           "image2": "/uploads/IMG_20200927_114221_460%20(1).jpg",
           "image3": "",
-          "url": "www.google.com"
+          "url": "www.google.com",
+          "ctaText": "View GTM Case Studies",
+          "ctaUrl": "#"
         },
         {
           "highlight": "35% MoM",
@@ -22,7 +23,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View GTM Case Studies",
+          "ctaUrl": "#"
         },
         {
           "highlight": ">5%",
@@ -31,7 +34,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View GTM Case Studies",
+          "ctaUrl": "#"
         }
       ]
     },
@@ -39,7 +44,6 @@
       "id": "growth",
       "label": "Growth & Lifecycle",
       "accent": "#5A6E8A",
-      "ctaText": "View Retention Framework",
       "metrics": [
         {
           "highlight": "2x",
@@ -48,7 +52,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View Retention Framework",
+          "ctaUrl": "#"
         },
         {
           "highlight": "17%",
@@ -57,7 +63,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View Retention Framework",
+          "ctaUrl": "#"
         },
         {
           "highlight": "200%",
@@ -66,7 +74,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View Retention Framework",
+          "ctaUrl": "#"
         }
       ]
     },
@@ -74,7 +84,6 @@
       "id": "commercial",
       "label": "Commercial Strategy",
       "accent": "#8A6A7E",
-      "ctaText": "View Commercial Wins",
       "metrics": [
         {
           "highlight": "37%",
@@ -83,7 +92,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View Commercial Wins",
+          "ctaUrl": "#"
         },
         {
           "highlight": "300%",
@@ -92,7 +103,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View Commercial Wins",
+          "ctaUrl": "#"
         },
         {
           "highlight": "6 Months",
@@ -101,7 +114,9 @@
           "image1": "",
           "image2": "",
           "image3": "",
-          "url": "#"
+          "url": "#",
+          "ctaText": "View Commercial Wins",
+          "ctaUrl": "#"
         }
       ]
     }

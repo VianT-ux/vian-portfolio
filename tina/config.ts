@@ -252,18 +252,6 @@ export default defineConfig({
                 },
               },
               {
-                name: "ctaText",
-                label: "CTA Button Text",
-                type: "string",
-              },
-              {
-                name: "ctaUrl",
-                label: "CTA Link URL",
-                type: "string",
-                description:
-                  'URL for the CTA link. Can be an internal path (e.g. "/case-studies/shopee") or external URL.',
-              },
-              {
                 name: "metrics",
                 label: "Metrics",
                 type: "object",
@@ -323,6 +311,20 @@ export default defineConfig({
                     type: "string",
                     description:
                       'URL for the chevron button. Can be an internal path (e.g. "/case-studies/shopee") or external URL.',
+                  },
+                  {
+                    name: "ctaText",
+                    label: "CTA Button Text",
+                    type: "string",
+                    description:
+                      'Text for the call-to-action link (e.g. "View GTM Case Studies")',
+                  },
+                  {
+                    name: "ctaUrl",
+                    label: "CTA Link URL",
+                    type: "string",
+                    description:
+                      'URL for the CTA link. Can be an internal path (e.g. "/case-studies/shopee") or external URL.',
                   },
                 ],
               },
