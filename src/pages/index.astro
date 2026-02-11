@@ -23,6 +23,11 @@ const ogImage = seo?.ogImage || "";
 // Prepare logo set for conveyor belt (triple the list so it fills the viewport width)
 const companies = homepage.companies?.filter(Boolean) || [];
 const logoSet = [...companies, ...companies, ...companies];
+
+// Helper: collect non-empty images from separate fields into an array
+function getMetricImages(metric: any): string[] {
+  return [metric.image1, metric.image2, metric.image3].filter((img): img is string => !!img);
+}
 ---
 
 <Layout title={pageTitle} description={pageDescription} ogImage={ogImage}>
@@ -207,24 +212,27 @@ const logoSet = [...companies, ...companies, ...companies];
                   >
                     <div class="flex-1 min-w-0">
                       {/* Mobile: images above metric number */}
-                      {metric.images && metric.images.length > 0 && (
-                        <div class="md:hidden mb-3">
-                          <div class="image-scroll flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 -mr-6 pr-6" style="-webkit-overflow-scrolling: touch;">
-                            {metric.images.map((img: string) => (
-                              <div class="flex-shrink-0 w-[200px] h-[150px] rounded-lg shadow-md overflow-hidden snap-start">
-                                <img src={img} alt="" class="w-full h-full object-cover" loading="lazy" />
-                              </div>
-                            ))}
-                          </div>
-                          {metric.images.length > 1 && (
-                            <div class="image-dots flex justify-center gap-1.5 mt-2">
-                              {metric.images.map((_: string, idx: number) => (
-                                <div class={`dot w-1.5 h-1.5 rounded-full transition-colors duration-200 ${idx === 0 ? 'bg-[#666666]' : 'bg-[#E5E2DC]'}`}></div>
+                      {(() => {
+                        const imgs = getMetricImages(metric);
+                        return imgs.length > 0 && (
+                          <div class="md:hidden mb-3">
+                            <div class="image-scroll flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 -mr-6 pr-6" style="-webkit-overflow-scrolling: touch;">
+                              {imgs.map((img) => (
+                                <div class="flex-shrink-0 w-[200px] h-[150px] rounded-lg shadow-md overflow-hidden snap-start">
+                                  <img src={img} alt="" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
                               ))}
                             </div>
-                          )}
-                        </div>
-                      )}
+                            {imgs.length > 1 && (
+                              <div class="image-dots flex justify-center gap-1.5 mt-2">
+                                {imgs.map((_, idx) => (
+                                  <div class={`dot w-1.5 h-1.5 rounded-full transition-colors duration-200 ${idx === 0 ? 'bg-[#666666]' : 'bg-[#E5E2DC]'}`}></div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })()}
 
                       <span
                         class="font-mono text-3xl font-semibold tracking-[-1px]"
@@ -283,20 +291,23 @@ const logoSet = [...companies, ...companies, ...companies];
                       data-detail-idx={String(j)}
                     >
                       {/* Desktop: images in detail panel */}
-                      {metric.images && metric.images.length > 0 && (
-                        <div class={`flex gap-3 ${metric.images.length === 1 ? 'justify-center' : ''}`}>
-                          {metric.images.map((img: string) => (
-                            <div
-                              class={`rounded-lg shadow-md overflow-hidden ${
-                                metric.images.length === 1 ? 'w-[65%]' : 'flex-1'
-                              }`}
-                              style="height: 250px;"
-                            >
-                              <img src={img} alt="" class="w-full h-full object-cover" loading="lazy" />
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                      {(() => {
+                        const imgs = getMetricImages(metric);
+                        return imgs.length > 0 && (
+                          <div class={`flex gap-3 ${imgs.length === 1 ? 'justify-center' : ''}`}>
+                            {imgs.map((img) => (
+                              <div
+                                class={`rounded-lg shadow-md overflow-hidden ${
+                                  imgs.length === 1 ? 'w-[65%]' : 'flex-1'
+                                }`}
+                                style="height: 250px;"
+                              >
+                                <img src={img} alt="" class="w-full h-full object-cover" loading="lazy" />
+                              </div>
+                            ))}
+                          </div>
+                        );
+                      })()}
 
                       <p class="text-[15px] text-[#666666] leading-[1.7]">
                         {metric.detail}

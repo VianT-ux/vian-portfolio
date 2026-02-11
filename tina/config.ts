@@ -299,12 +299,23 @@ export default defineConfig({
                       "Full narrative explanation (shown in the detail panel on desktop)",
                   },
                   {
-                    name: "images",
-                    label: "Project Images",
+                    name: "image1",
+                    label: "Project Image 1",
                     type: "image",
-                    list: true,
                     description:
-                      "Up to 3 images showcasing the work (screenshots, campaign assets, analytics, etc.)",
+                      "First image showcasing the work (screenshot, campaign asset, etc.)",
+                  },
+                  {
+                    name: "image2",
+                    label: "Project Image 2",
+                    type: "image",
+                    description: "Second image (optional)",
+                  },
+                  {
+                    name: "image3",
+                    label: "Project Image 3",
+                    type: "image",
+                    description: "Third image (optional)",
                   },
                   {
                     name: "url",
