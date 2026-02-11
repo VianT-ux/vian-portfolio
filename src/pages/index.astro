@@ -507,6 +507,7 @@ function getMetricImages(metric: any): string[] {
     });
 
     // Metric row click — manual override
+    const isMobile = () => window.innerWidth < 768;
     document.querySelectorAll('.metric-row').forEach((row) => {
       row.addEventListener('click', (e) => {
         // Don't trigger if chevron link was clicked
@@ -518,7 +519,10 @@ function getMetricImages(metric: any): string[] {
 
         stopRotation(tabId);
         activateMetric(tabId, idx);
-        startRotation(tabId);
+        // On mobile, don't restart auto-rotation so user can read detail + CTA
+        if (!isMobile()) {
+          startRotation(tabId);
+        }
       });
     });
 
