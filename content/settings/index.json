@@ -2,7 +2,12 @@
   "logoText": "VIAN",
   "resumeFile": "",
   "footerCopyright": "2026 Vian. Growth Marketer.",
-  "footerLocation": "Singapore",
+  "footerLocation": "Malaysia",
   "contactEmail": "",
-  "socialLinks": []
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/vian-twoon-9a201ab5/"
+    }
+  ]
 }
