@@ -218,7 +218,7 @@ function getMetricImages(metric: any): string[] {
                           <div class="md:hidden mb-3">
                             <div class="image-scroll flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 -mr-6 pr-6" style="-webkit-overflow-scrolling: touch;">
                               {imgs.map((img, imgIdx) => (
-                                <div class="flex-shrink-0 w-[200px] h-[150px] rounded-lg shadow-md overflow-hidden snap-start">
+                                <div class="flex-shrink-0 w-[85vw] h-[220px] rounded-lg shadow-md overflow-hidden snap-start">
                                   <img src={img} alt={`${metric.description} - Image ${imgIdx + 1}`} class="w-full h-full object-cover" loading="lazy" />
                                 </div>
                               ))}
@@ -338,7 +338,7 @@ function getMetricImages(metric: any): string[] {
                                 class={`rounded-lg shadow-md overflow-hidden ${
                                   imgs.length === 1 ? 'w-[65%]' : 'flex-1'
                                 }`}
-                                style="height: 250px;"
+                                style="height: 350px;"
                               >
                                 <img src={img} alt={`${metric.description} - Image ${imgIdx + 1}`} class="w-full h-full object-cover" loading="lazy" />
                               </div>
