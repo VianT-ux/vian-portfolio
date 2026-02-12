@@ -142,4 +142,19 @@ const canonicalUrl = Astro.url.href;
   .image-scroll::-webkit-scrollbar {
     display: none;
   }
+
+  /* Focus states for keyboard navigation */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #1A1A1A;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a,
+  button {
+    transition-property: color, background-color, border-color, opacity, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 </style>
