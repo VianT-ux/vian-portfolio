@@ -69,6 +69,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
+          "showArrow": true,
           "url": "#"
         }
       ]
