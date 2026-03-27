@@ -34,6 +34,7 @@ fragment CapabilitiesParts on Capabilities {
       image1
       image2
       image3
+      showArrow
       url
       ctaText
       ctaUrl

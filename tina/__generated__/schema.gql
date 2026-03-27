@@ -181,6 +181,7 @@ type CapabilitiesTabsMetrics {
   image1: String
   image2: String
   image3: String
+  showArrow: Boolean
   url: String
   ctaText: String
   ctaUrl: String
@@ -200,6 +201,11 @@ type Capabilities implements Node & Document {
   _values: JSON!
 }
 
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
 input CapabilitiesTabsMetricsFilter {
   highlight: StringFilter
   description: StringFilter
@@ -207,6 +213,7 @@ input CapabilitiesTabsMetricsFilter {
   image1: ImageFilter
   image2: ImageFilter
   image3: ImageFilter
+  showArrow: BooleanFilter
   url: StringFilter
   ctaText: StringFilter
   ctaUrl: StringFilter
@@ -528,6 +535,7 @@ input CapabilitiesTabsMetricsMutation {
   image1: String
   image2: String
   image3: String
+  showArrow: Boolean
   url: String
   ctaText: String
   ctaUrl: String
