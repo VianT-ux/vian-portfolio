@@ -306,6 +306,13 @@ export default defineConfig({
                     description: "Third image (optional)",
                   },
                   {
+                    name: "showArrow",
+                    label: "Show Arrow Button",
+                    type: "boolean",
+                    description:
+                      "Toggle to show or hide the chevron arrow button on this metric row.",
+                  },
+                  {
                     name: "url",
                     label: "Link URL",
                     type: "string",
