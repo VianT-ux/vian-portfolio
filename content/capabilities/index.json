@@ -49,7 +49,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 144246.png",
           "image2": "/uploads/Screenshot%202026-02-12%20140131.png",
           "image3": "",
-          "showArrow": true,
+          "showArrow": false,
           "url": "#"
         },
         {
