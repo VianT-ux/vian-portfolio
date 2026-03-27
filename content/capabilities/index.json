@@ -12,8 +12,8 @@
           "image1": "/uploads/Screenshot 2026-02-12 133021.png",
           "image2": "/uploads/Screenshot%202026-02-12%20133130.png",
           "image3": "",
-          "showArrow": true,
-          "url": "www.google.com"
+          "showArrow": false,
+          "url": ""
         },
         {
           "highlight": "35% MoM",
