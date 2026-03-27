@@ -86,7 +86,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 145233.png",
           "image2": "/uploads/Screenshot 2026-02-12 145026.png",
           "image3": "",
-          "showArrow": true,
+          "showArrow": false,
           "url": "#"
         },
         {
