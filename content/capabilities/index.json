@@ -12,7 +12,8 @@
           "image1": "/uploads/Screenshot 2026-02-12 133021.png",
           "image2": "/uploads/Screenshot%202026-02-12%20133130.png",
           "image3": "",
-          "url": "www.google.com"
+          "showArrow": false,
+          "url": ""
         },
         {
           "highlight": "35% MoM",
@@ -21,6 +22,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 133609.png",
           "image2": "/uploads/Screenshot%202026-02-12%20133657.png",
           "image3": "/uploads/Screenshot%202026-02-12%20133723.png",
+          "showArrow": false,
           "url": ""
         },
         {
@@ -30,6 +32,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 140543.png",
           "image2": "",
           "image3": "",
+          "showArrow": false,
           "url": ""
         }
       ]
@@ -46,6 +49,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 144246.png",
           "image2": "/uploads/Screenshot%202026-02-12%20140131.png",
           "image3": "",
+          "showArrow": false,
           "url": "#"
         },
         {
@@ -55,6 +59,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 150446.png",
           "image2": "/uploads/Screenshot 2026-02-04 104543.png",
           "image3": "",
+          "showArrow": false,
           "url": "#"
         },
         {
@@ -64,6 +69,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
+          "showArrow": false,
           "url": "#"
         }
       ]
@@ -80,6 +86,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 145233.png",
           "image2": "/uploads/Screenshot 2026-02-12 145026.png",
           "image3": "",
+          "showArrow": false,
           "url": "#"
         },
         {
@@ -89,6 +96,7 @@
           "image1": "/uploads/Screenshot 2026-02-12 144543.png",
           "image2": "",
           "image3": "",
+          "showArrow": false,
           "url": "#"
         },
         {
@@ -98,6 +106,7 @@
           "image1": "",
           "image2": "",
           "image3": "",
+          "showArrow": false,
           "url": "#"
         }
       ]

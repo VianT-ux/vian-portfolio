@@ -5,7 +5,8 @@
   "shippedResultsLabel": "Shipped results for",
   "companies": [
     {
-      "name": "Shopee"
+      "name": "Shopee",
+      "logo": "/uploads/Shopee-Logo.png"
     },
     {
       "name": "StashAway"
